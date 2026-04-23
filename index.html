@@ -1,70 +1,207 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./CSS/output.css" />
     <title>Fylo - Secure File Storage</title>
-    <!-- Theme Detection (Critical Path) -->
     <script src="./js/script.js" defer></script>
     <script src="./js/theme-detect.js"></script>
   </head>
-  <body
-    class="bg-slate-100 dark:bg-dark-blue-main text-slate-900 dark:text-white transition-colors duration-300"
-  >
+  <body class="bg-white dark:bg-dark-blue-main text-slate-900 dark:text-white transition-colors duration-300 font-body">
     <!-- Header -->
-    <header
-      class="container mx-auto px-6 py-10 flex items-center justify-between"
-    >
-      <!-- Logo -->
-      <div class="w-24 md:w-32">
-        <img
-          src="./images/logo.svg"
-          alt="Fylo Logo"
-          class="theme-icon w-full"
-        />
-      </div>
+    <header class="bg-white dark:bg-dark-blue-intro transition-colors duration-300">
+      <div class="container mx-auto px-6 py-10 flex flex-col md:flex-row gap-6 md:gap-0 items-center md:justify-between">
+        <!-- Logo -->
+        <div class="w-40">
+          <img src="./images/logo.svg" alt="Fylo Logo" class="theme-icon w-full">
+        </div>
 
-      <!-- Navigation & Toggle -->
-      <div class="flex items-center space-x-6 font-headings md:space-x-10">
-        <nav class="flex items-center space-x-6 md:space-x-10">
-          <a href="#features" class="hover:text-cyan transition-colors"
-            >Features</a
-          >
-          <a href="#testimonials" class="hover:text-cyan transition-colors"
-            >Testimonials</a
-          >
+        <!-- Navigation -->
+        <nav class="flex items-center space-x-6 md:space-x-12 font-headings">
+          <a href="#features" class="hover:text-cyan hover:underline transition-all">Features</a>
+          <a href="#team" class="hover:text-cyan hover:underline transition-all">Team</a>
+          
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+          </button>
         </nav>
-
-        <!-- Theme Toggle Button -->
-        <button
-          id="theme-toggle"
-          class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-        >
-          <!-- Dark Icon (Moon) -->
-          <svg
-            id="theme-toggle-dark-icon"
-            class="hidden w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-            ></path>
-          </svg>
-          <!-- Light Icon (Sun) -->
-          <svg
-            id="theme-toggle-light-icon"
-            class="hidden w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-            ></path>
-          </svg>
-        </button>
       </div>
     </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-white dark:bg-dark-blue-intro transition-colors duration-300 bg-curvy-light-mobile md:bg-curvy-light-desktop dark:bg-curvy-mobile dark:md:bg-curvy-desktop bg-no-repeat bg-contain bg-bottom">
+      <div class="container mx-auto px-6 text-center pt-10 pb-40 md:pt-20">
+        <img src="./images/illustration-intro.png" alt="" class="mx-auto mb-10 w-full max-w-2xl">
+        <h1 class="max-w-3xl mx-auto mb-10 text-3xl md:text-4xl lg:text-5xl font-bold">
+          All your files in one secure location, accessible anywhere.
+        </h1>
+        <p class="max-w-2xl mx-auto mb-10 text-lg opacity-80">
+          Fylo stores all your most important files in one secure location. 
+          Access them wherever you need, share and collaborate with 
+          friends family, and co-workers.
+        </p>
+        <button class="btn-gradient px-20 py-4 rounded-full font-headings font-bold hover:scale-105 transition-transform">
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="bg-slate-100 dark:bg-dark-blue-main pt-20 transition-colors duration-300">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <!-- Features Grid -->
+        <section id="features" class="grid grid-cols-1 md:grid-cols-2 gap-20 py-20">
+          <div class="flex flex-col items-center text-center">
+            <div class="h-24 flex items-center justify-center mb-6">
+              <img src="./images/icon-access-anywhere.svg" alt="" class="w-20">
+            </div>
+            <h3 class="text-xl mb-2 font-bold">Access your file from anywhere</h3>
+            <p class="max-w-md opacity-80 text-sm md:text-base">
+              The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div class="h-24 flex items-center justify-center mb-6">
+              <img src="./images/icon-security.svg" alt="" class="w-16">
+            </div>
+            <h3 class="text-xl mb-2 font-bold">Security you can trust</h3>
+            <p class="max-w-md opacity-80 text-sm md:text-base">
+              2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div class="h-24 flex items-center justify-center mb-6">
+              <img src="./images/icon-collaboration.svg" alt="" class="w-20">
+            </div>
+            <h3 class="text-xl mb-2 font-bold">Real-time collaboration</h3>
+            <p class="max-w-md opacity-80 text-sm md:text-base">
+              Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div class="h-24 flex items-center justify-center mb-6">
+              <img src="./images/icon-any-file.svg" alt="" class="w-20">
+            </div>
+            <h3 class="text-xl mb-2 font-bold">Store any type of file</h3>
+            <p class="max-w-md opacity-80 text-sm md:text-base">
+              Whether you're sharing holidays photos or work documents, Fylo has you covered allowing for all file types to be securely stored and shared.
+            </p>
+          </div>
+        </section>
+
+        <!-- Productivity Section -->
+        <section id="productivity" class="flex flex-col md:flex-row items-center py-24 gap-20 text-center md:text-left mb-64">
+          <div class="md:w-1/2">
+            <img src="./images/illustration-stay-productive.png" alt="" class="w-full">
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="text-3xl md:text-4xl mb-6 max-w-md font-bold">Stay productive, wherever you are</h2>
+            <p class="mb-4 text-lg opacity-80">Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs.</p>
+            <p class="mb-6 text-lg opacity-80">Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.</p>
+            <a href="#" class="inline-flex items-center text-cyan border-b border-cyan pb-1 hover:text-blue hover:border-blue transition-all group">
+              See how Fylo works
+              <img src="./images/icon-arrow.svg" alt="" class="ml-2 group-hover:translate-x-1 transition-transform">
+            </a>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="team" class="relative py-24">
+          <img src="./images/bg-quotes.png" alt="" class="absolute left-6 -top-2 md:left-2 md:-top-4 w-16 md:w-20 z-0">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-white dark:bg-dark-blue-testimonial p-10 rounded-lg shadow-xl">
+              <p class="text-sm md:text-base mb-6 leading-relaxed opacity-90">Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+              <div class="flex items-center space-x-3">
+                <img src="./images/profile-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                <div>
+                  <h4 class="text-sm font-bold">Satish Patel</h4>
+                  <p class="text-[10px] opacity-70">Founder & CEO, Huddle</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-dark-blue-testimonial p-10 rounded-lg shadow-xl">
+              <p class="text-sm md:text-base mb-6 leading-relaxed opacity-90">Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+              <div class="flex items-center space-x-3">
+                <img src="./images/profile-2.jpg" alt="" class="w-8 h-8 rounded-full">
+                <div>
+                  <h4 class="text-sm font-bold">Bruce McKenzie</h4>
+                  <p class="text-[10px] opacity-70">Founder & CEO, Huddle</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-dark-blue-testimonial p-10 rounded-lg shadow-xl">
+              <p class="text-sm md:text-base mb-6 leading-relaxed opacity-90">Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+              <div class="flex items-center space-x-3">
+                <img src="./images/profile-3.jpg" alt="" class="w-8 h-8 rounded-full">
+                <div>
+                  <h4 class="text-sm font-bold">Iva Boyd</h4>
+                  <p class="text-[10px] opacity-70">Founder & CEO, Huddle</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- CTA & Footer -->
+    <section id="early-access" class="relative px-6 bg-slate-100 dark:bg-dark-blue-main transition-colors mb-20">
+      <div class="container mx-auto max-w-4xl bg-white dark:bg-dark-blue-intro p-12 rounded-lg text-center shadow-[0_15px_30px_rgba(0,0,0,0.4)] relative z-10 translate-y-1/2">
+        <h2 class="text-2xl md:text-3xl mb-6 font-bold">Get early access today</h2>
+        <p class="mb-10 max-w-2xl mx-auto opacity-80 text-sm md:text-base">It only takes a minute to sign up and our free starter tier is extremely generous. If you have any questions, our support team would be happy to help you.</p>
+        <form class="flex flex-col md:flex-row gap-6">
+          <input type="email" placeholder="email@example.com" class="w-full md:flex-1 p-4 px-8 rounded-full bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan transition-all">
+          <button class="btn-gradient px-10 py-4 rounded-full font-headings font-bold hover:scale-105 transition-transform">Get Started For Free</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-slate-200 text-slate-900 dark:bg-dark-blue-footer dark:text-white pt-52 pb-20 px-6 transition-colors ">
+      <div class="container mx-auto max-w-7xl ">
+        <img src="./images/logo.svg" alt="" class="w-32 mb-12 mx-auto md:mx-0 brightness-0 dark:invert">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 lg:gap-16 text-center md:text-left">
+          <div class="flex flex-col items-center space-y-4 md:flex-row md:items-start md:space-x-6 md:space-y-0">
+            <img src="./images/icon-location.svg" alt="" class="w-5 mt-1 brightness-0 dark:invert">
+            <p class="text-sm opacity-80">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+          </div>
+          <div class="flex flex-col items-center space-y-6 md:items-start">
+            <div class="flex flex-col items-center space-y-2 md:flex-row md:space-x-4 md:space-y-0">
+              <img src="./images/icon-phone.svg" alt="" class="w-5 brightness-0 dark:invert">
+              <p class="text-sm opacity-80">+1-543-123-4567</p>
+            </div>
+            <div class="flex flex-col items-center space-y-2 md:flex-row md:space-x-4 md:space-y-0">
+              <img src="./images/icon-email.svg" alt="" class="w-5 brightness-0 dark:invert">
+              <p class="text-sm opacity-80">example@fylo.com</p>
+            </div>
+          </div>
+          <div class="flex flex-col space-y-4 text-sm opacity-80">
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">About Us</a>
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Jobs</a>
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Press</a>
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Blog</a>
+          </div>
+          <div class="flex flex-col space-y-4 text-sm opacity-80">
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Contact Us</a>
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Terms</a>
+            <a href="#" class="hover:font-bold hover:text-cyan transition-colors">Privacy</a>
+          </div>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="#" class="w-10 h-10 border border-slate-900 dark:border-white rounded-full flex items-center justify-center hover:text-cyan hover:border-cyan transition-colors group">
+              <img src="./images/facebook.svg" alt="Facebook" class="w-5 brightness-0 dark:invert group-hover:brightness-0 group-hover:invert-[.73] group-hover:sepia-[.50] group-hover:saturate-[5000%] group-hover:hue-rotate-[130deg] transition-all">
+            </a>
+            <a href="#" class="w-10 h-10 border border-slate-900 dark:border-white rounded-full flex items-center justify-center hover:text-cyan hover:border-cyan transition-colors group">
+              <img src="./images/twitter.svg" alt="Twitter" class="w-5 brightness-0 dark:invert group-hover:brightness-0 group-hover:invert-[.73] group-hover:sepia-[.50] group-hover:saturate-[5000%] group-hover:hue-rotate-[130deg] transition-all">
+            </a>
+            <a href="#" class="w-10 h-10 border border-slate-900 dark:border-white rounded-full flex items-center justify-center hover:text-cyan hover:border-cyan transition-colors group">
+              <img src="./images/instagram_icon.svg" alt="Instagram" class="w-5 brightness-0 dark:invert group-hover:brightness-0 group-hover:invert-[.73] group-hover:sepia-[.50] group-hover:saturate-[5000%] group-hover:hue-rotate-[130deg] transition-all">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script.js" defer></script>
   </body>
 </html>

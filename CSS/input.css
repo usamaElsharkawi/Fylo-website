@@ -1,8 +1,7 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 @variant dark (&:where(.dark, .dark *));
-
 
 @theme {
   /* Breakpoints */
@@ -28,6 +27,8 @@
   --background-image-logo: url("../images/logo.svg");
   --background-image-curvy-desktop: url("../images/bg-curvy-desktop.svg");
   --background-image-curvy-mobile: url("../images/bg-curvy-mobile.svg");
+  --background-image-curvy-light-desktop: url("../images/bg-curvy-light-desktop.svg");
+  --background-image-curvy-light-mobile: url("../images/bg-curvy-light-mobile.svg");
 }
 
 @layer base {
@@ -61,4 +62,15 @@
 /* Custom Components */
 .btn-gradient {
   @apply bg-linear-to-r from-cyan to-blue font-headings font-bold text-white rounded-full transition-all duration-300 hover:opacity-80;
+}
+
+.curvy-filter {
+  @variant dark {
+    /* This filter darkens the white SVG to match dark-blue-main */
+    filter: brightness(0.9) invert(0.1) sepia(1) saturate(1) hue-rotate(185deg) brightness(0.15);
+  }
+}
+
+.theme-icon-footer {
+  filter: invert(1);
 }
