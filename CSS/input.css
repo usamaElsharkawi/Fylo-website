@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   /* Breakpoints */
@@ -17,20 +21,35 @@
   --color-light-red: hsl(0, 100%, 63%);
 
   /* Fonts */
-  --font-headings: 'Raleway', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-headings: "Raleway", sans-serif;
+  --font-body: "Open Sans", sans-serif;
 
   /* Background Images */
-  --background-image-curvy-desktop: url('../images/bg-curvy-desktop.svg');
-  --background-image-curvy-mobile: url('../images/bg-curvy-mobile.svg');
+  --background-image-logo: url("../images/logo.svg");
+  --background-image-curvy-desktop: url("../images/bg-curvy-desktop.svg");
+  --background-image-curvy-mobile: url("../images/bg-curvy-mobile.svg");
 }
 
 @layer base {
   body {
-    @apply bg-dark-blue-main font-body text-white text-base;
+    @apply bg-slate-100 text-slate-900 font-body text-base transition-colors duration-300 antialiased;
+    @variant dark {
+      @apply bg-dark-blue-main text-white;
+    }
   }
-  
-  h1, h2, h3, h4 {
+
+  /* Handle Logo/Icon visibility across themes */
+  .theme-icon {
+    filter: invert(1);
+    @variant dark {
+      filter: invert(0);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-headings font-bold leading-tight;
   }
 
@@ -41,5 +60,5 @@
 
 /* Custom Components */
 .btn-gradient {
-  @apply bg-gradient-to-r from-cyan to-blue font-headings font-bold text-white rounded-full transition-all duration-300 hover:opacity-80;
+  @apply bg-linear-to-r from-cyan to-blue font-headings font-bold text-white rounded-full transition-all duration-300 hover:opacity-80;
 }
