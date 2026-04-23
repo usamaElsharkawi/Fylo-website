@@ -1,0 +1,17 @@
+{
+  "name": "tailwindcss-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./CSS/input.css -o ./CSS/output.css",
+    "watch": "npx @tailwindcss/cli -i ./CSS/input.css -o ./CSS/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.3",
+    "tailwindcss": "^4.2.3"
+  }
+}

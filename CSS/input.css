@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --breakpoint-xl: 1440px;
+
+  /* Colors */
+  --color-dark-blue-intro: hsl(217, 28%, 15%);
+  --color-dark-blue-main: hsl(218, 28%, 13%);
+  --color-dark-blue-footer: hsl(216, 53%, 9%);
+  --color-dark-blue-testimonial: hsl(219, 30%, 18%);
+  --color-cyan: hsl(176, 68%, 64%);
+  --color-blue: hsl(198, 60%, 50%);
+  --color-light-red: hsl(0, 100%, 63%);
+
+  /* Fonts */
+  --font-headings: 'Raleway', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Background Images */
+  --background-image-curvy-desktop: url('../images/bg-curvy-desktop.svg');
+  --background-image-curvy-mobile: url('../images/bg-curvy-mobile.svg');
+}
+
+@layer base {
+  body {
+    @apply bg-dark-blue-main font-body text-white text-base;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-headings font-bold leading-tight;
+  }
+
+  p {
+    @apply opacity-80;
+  }
+}
+
+/* Custom Components */
+.btn-gradient {
+  @apply bg-gradient-to-r from-cyan to-blue font-headings font-bold text-white rounded-full transition-all duration-300 hover:opacity-80;
+}
